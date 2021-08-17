@@ -5,7 +5,6 @@ import { ErrorMessage } from "@hookform/error-message";
 type Inputs = {
   name: string;
   phone_number: number;
-  email: string;
 }
 
 const Home: NextPage = () => {
@@ -24,7 +23,7 @@ const Home: NextPage = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>名前</label>
-      <input {...register("name")} defaultValue="test" />
+      <input {...register("name")} />
       <label>電話番号</label>
       <input
         {...register("phone_number", { 
@@ -45,10 +44,6 @@ const Home: NextPage = () => {
               ))
             : null;
         }}
-      />
-      <label>メールアドレス</label>
-      <input
-        {...register("email", { required: true, maxLength: 10 })}
       />
       <input type="submit" />
     </form>
